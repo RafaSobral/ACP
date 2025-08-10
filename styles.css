@@ -1,0 +1,424 @@
+:root{
+  --accent: #ffcc00;
+  --whatsapp: #25D366;
+  --dark: #111;
+  --wrap: 1180px;
+  --text-light: rgba(255,255,255,0.96);
+  --radius: 28px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color:var(--dark);
+    line-height:1.45;
+    background:#ffffff
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 18px}
+
+/* header */
+.site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:60}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-size:20px;letter-spacing:1px;font-weight:800}
+.main-nav a{margin-left:18px;color:#333;text-decoration:none;font-weight:600}
+.main-nav a:hover{text-decoration:underline}
+
+/* HERO */
+.hero{
+  height:78vh;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  background: linear-gradient(120deg,#2b2b2b 0%, #1f1f1f 60%);
+  color:var(--text-light);
+}
+.hero-overlay{width:100%;padding:48px 18px;text-align:center}
+.hero-title{
+  font-size:64px;
+  line-height:1;
+  margin-bottom:14px;
+  font-weight:900;
+  color: var(--accent);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.hero-sub{
+  max-width:760px;
+  margin:0 auto 22px;
+  font-weight:700;
+  color:rgba(255,255,255,0.9);
+}
+
+/* botões */
+.hero-actions{margin:18px auto 12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:var(--radius);text-decoration:none;font-weight:800;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+.btn.primary{background:var(--accent);color:#111}
+.btn.outline{
+  border:2px solid rgba(255,255,255,0.9);
+  color: #fff;
+  background:transparent;
+}
+
+/* coverage text */
+.coverage{margin-top:12px;font-weight:900;color:var(--accent)}
+
+/* services cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:48px 0}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0, 0, 0, 0.377)}
+.card h3{margin-bottom:8px}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.12);
+  transition:transform 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: #25D366;
+}
+
+/* about + contact */
+.about{padding:40px 0;background:#fff}
+.contact{padding:40px 0}
+.contact-form{display:flex;flex-direction:column;gap:10px;max-width:560px}
+.contact-form input, .contact-form textarea{
+  padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px
+}
+.contact-form textarea{min-height:100px;resize:vertical}
+.contact .btn.primary{width:160px}
+
+/* footer */
+.site-footer{padding:22px 0;text-align:center;background:#f7f7f7;margin-top:28px}
+
+/* whatsapp floating */
+#whatsapp-fab{
+  position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;
+  background:var(--whatsapp);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);text-decoration:none;z-index:9999;
+}
+
+/* responsividade */
+@media (max-width:980px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:46px}
+}
+@media (max-width:600px){
+  .cards{grid-template-columns:1fr}
+  .hero-title{font-size:32px}
+  .main-nav{display:none}
+  .wrap{padding:0 12px}
+}
+
+
+/* ===== Carrossel do Banner ===== */
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  animation: slideShow 30s infinite;
+}
+
+.hero-carousel .slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.hero-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Efeito de transição */
+@keyframes slideShow {
+  0%   { transform: translateX(0%); }
+  16%  { transform: translateX(0%); }
+  20%  { transform: translateX(-100%); }
+  36%  { transform: translateX(-100%); }
+  40%  { transform: translateX(-200%); }
+  56%  { transform: translateX(-200%); }
+  60%  { transform: translateX(-300%); }
+  76%  { transform: translateX(-300%); }
+  80%  { transform: translateX(-400%); }
+  96%  { transform: translateX(-400%); }
+  100% { transform: translateX(-500%); }
+}
+
+/* Mantém o conteúdo sobreposto */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+
+#sobre h1{
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+#sobre h2{
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: var(--accent);
+}
+
+#sobre ul {
+  margin-left: 3%;
+}
+
+#sobre {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Texto: ocupa metade */
+#sobre .conteineresobre {
+  flex: 1; /* ou width: 50%; */
+  color: #000000;
+  padding: 20px;
+}
+
+/* Imagem: ocupa metade */
+#sobre img {
+  flex: 1; /* ou width: 50%; */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.contato-galeria {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    background:#ffffff; /* fundo levemente escuro */
+    color: rgb(0, 0, 0);
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    flex: 1;
+}
+
+.galeria img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1; /* mantém quadrado */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-contato {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.info-contato h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-contato p {
+    margin-top: 20px;
+    font-size: 25px;
+    line-height: 1.4;
+    align-items: center;
+    
+}
+
+.info-contato .btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 12px 22px;
+    border-radius: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: #111;
+}
+
+.btn.outline {
+    border: 2px solid white;
+    color: rgb(0, 0, 0);
+    background: var(--accent);
+}
+
+.cartoes {
+    margin-top: 15px;
+    max-width: 200px;
+}
+
+#contato{
+    font-size: 20px;
+}
+
+.contato-container {
+  display: flex;
+  flex-wrap: wrap; /* quebra no celular */
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.map-responsive {
+  flex: 1;
+  min-width: 300px;
+  overflow: hidden;
+  padding-bottom: 30%; /* proporção 16:9 */
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layout padrão (desktop/tablet) já está ok) */
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .contato-container {
+    flex-direction: column; /* força ficar um abaixo do outro */
+  }
+
+  .contact-info, 
+  .map-responsive {
+    flex: none;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .map-responsive {
+    padding-bottom: 56.25%; /* mantém proporção 16:9 no celular */
+  }
+
+  .contact-form {
+    max-width: 100%; /* formulário ocupa toda a largura no mobile */
+  }
+
+  #contato {
+    font-size: 18px;
+  }
+}
+
+/* Ajuste extra para telas muito pequenas (celulares antigos) */
+@media (max-width: 480px) {
+  .contact-form input, 
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .contact .btn.primary {
+    width: 100%; /* botão ocupa toda a largura */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: auto; /* deixa altura livre no mobile */
+  }
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    overflow: hidden; /* Impede rolagem */
+    animation: none !important; /* Para a animação */
+    transform: translateX(0) !important; /* Garante que fique na 1ª */
+  }
+  .hero-carousel img {
+    display: none; /* Esconde todas as imagens */
+  }
+  .hero-carousel img:first-child {
+    display: block; /* Mostra só a primeira */
+    width: 100%; /* Garante que ocupe a largura */
+  }
+}
+
+
+/* RESPONSIVIDADE: sobre */
+@media (max-width: 768px) {
+  #sobre {
+    flex-direction: column; /* um embaixo do outro */
+    text-align: center;
+  }
+
+  #sobre .conteineresobre {
+    padding: 10px;
+  }
+
+  #sobre img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* RESPONSIVIDADE: galeria + contato */
+@media (max-width: 768px) {
+
+  /* #sobre img{
+    display: none;
+  } */
+
+  .contato-galeria {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .galeria {
+    display: none;
+  }
+
+  .info-contato {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+  }
+}
